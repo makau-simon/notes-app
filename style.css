@@ -1,5 +1,5 @@
 /*The font family applies to the entire html document*/
-*{
+* {
   font-family: sans-serif;
 }
 
@@ -8,14 +8,14 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  background:#fff;
+  background: #f9f9f9;
 }
 
 /*styling the header*/
-header{
+header {
   height: 50px;
   width: 100vw;
-  background:inherit;
+  background: inherit;
   position: absolute;
   top: 0;
   display: flex;
@@ -23,14 +23,18 @@ header{
   padding: 10px;
   position: fixed;
   z-index: 1;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .1);
 }
 
 /*The title "note app" */
-header h3{
+header h3 {
+  font-size: 25px;
+  font-weight: bold;
   text-transform: capitalize;
   font-family: sans-serif;
-  color: darkcyan;
+  width: fit-content;
+  background: linear-gradient(to right, darkcyan, crimson);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 /*The div containing the notes*/
@@ -56,6 +60,10 @@ header h3{
   transition: all 1s;
 }
 
+hr {
+  border: 0.05px solid darkcyan;
+}
+
 /*Title of the note*/
 h4 {
   outline: none;
@@ -66,7 +74,7 @@ h4 {
 /*content of the note*/
 p {
   outline: none;
-  font-size: 12px;
+  font-size: 15px;
   font-family: sans-serif;
   font-weight: 400;
 }
@@ -83,44 +91,50 @@ p {
   color: #fff;
   border: 0;
   outline: none;
-  background: darkcyan;
   font-weight: 300;
   margin: 0 auto;
   margin-top: 10px;
   position: absolute;
   right: 35px;
+  background:darkcyan;
 }
 
 /*The delete button*/
 .btnD {
   height: 18px;
 }
-.dt{
+
+.dt {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-.dt p{
+
+.dt p {
   font-size: 12px;
   color: darkcyan;
   font-weight: 300;
 }
-h6{
+
+h6 {
   font-size: 12px;
   font-weight: 300;
   text-align: center;
 }
-   /*changes the size of the note when the screen size is adjusted to landscape mode*/ 
-@media screen and (min-width: 400px){
-  .note{
-  width: 380px;
-}
-.note h4{
-  font-size: 18px;
-}
-.note p{
-  font-size: 16px;
-}
+
+/*changes the size of the note when the screen size is adjusted to landscape mode*/
+@media screen and (min-width: 400px) {
+  .note {
+    width: 380px;
+  }
+
+  .note h4 {
+    font-size: 18px;
+  }
+
+  .note p {
+    font-size: 16px;
+  }
 }
 
-/*---written by simon Makau---*/
+/* ---written by simon Makau--- */

@@ -13,7 +13,9 @@ let dy = dt.getDay()
 //The html for a single note
 let markup = `
       <h4 contenteditable="true" class='title'>TITLE</h4>
+      <hr>
       <p contenteditable="true" class='text'>write text here....</p>
+      <hr>
       <div class="dt">
       <img src="/images/delete.png" alt="delete.png" class="btnD">
       <p class="time">${getDay(dy)} ${d}/${mn}/${y} ${h}:${m<10?"0"+m:m}${h>10?"PM":"AM"}</p>
@@ -101,4 +103,14 @@ function getDay(num) {
   }
 }
 
+//registering service worker
+if('serviceWorker' in navigator){
+  navigator.serviceWorker.register('/sw.js').then((registration)=>{
+    console.log(registration)
+  })
+}
+
+Push.create('notes-app', {
+  body: "welcome to notes app.happy writing!"
+});
 /*---written by simon Makau---*/
