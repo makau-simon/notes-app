@@ -1,1 +1,35 @@
-{}
+{
+  "name": "Notes-app",
+  "start_url": ".",
+  "background_color":"hsl(235,19%,35%)",
+  "theme_color":"hsl(235, 19%, 35%)",
+  "display": "standalone",
+  "icons": [
+
+    {
+      "src": "/images/notes32*32.png",
+      "size": "32*32",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/notes64*64.png",
+      "size": "64*64",
+      "type": "image/png"
+        },
+    {
+      "src": "/images/notes128*128.png",
+      "size": "128*128",
+      "type": "image/png"
+            },
+    {
+      "src": "/images/notes256*256.png",
+      "size": "256*256",
+      "type": "image/png"
+                },
+    {
+      "src": "/images/notes512*512.png",
+      "size": "512*512",
+      "type": "image/png"
+                    }
+    ]
+}

@@ -8,14 +8,15 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  background: #f9f9f9;
+  background: hsl(236, 33%, 92%);
 }
 
 /*styling the header*/
 header {
   height: 50px;
   width: 100vw;
-  background: inherit;
+  background: url("/images/bg.jpg");
+  background-size: cover;
   position: absolute;
   top: 0;
   display: flex;
@@ -23,6 +24,7 @@ header {
   padding: 10px;
   position: fixed;
   z-index: 1;
+  justify-content: space-around;
 }
 
 /*The title "note app" */
@@ -31,10 +33,12 @@ header h3 {
   font-weight: bold;
   text-transform: capitalize;
   font-family: sans-serif;
-  width: fit-content;
-  background: linear-gradient(to right, darkcyan, crimson);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  /*   width: fit-content;
+background: linear-gradient(45deg, crimson, #000);
+-webkit-background-clip: text;
+-webkit-text-fill-color: transparent; */
+  color: #fff;
+  letter-spacing: 2px;
 }
 
 /*The div containing the notes*/
@@ -47,27 +51,32 @@ header h3 {
   flex-direction: column;
   gap: 20px;
   margin-top: 100px;
+
 }
 
 /*styling a single note*/
 .note {
   height: auto;
   width: 250px;
-  box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, .2);
   border-radius: 10px;
   box-sizing: border-box;
   padding: 10px;
-  transition: all 1s;
+  background: hsl(0, 0%, 98%);
+  transition: all .5s;
+}
+
+.note:hover {
+  transform: scale(1.1);
 }
 
 hr {
-  border: 0.05px solid darkcyan;
+  border: 0.05px solid hsl(235, 19%, 35%);
 }
 
 /*Title of the note*/
 h4 {
   outline: none;
-  color: darkcyan;
+  color: hsl(235, 19%, 35%);
   font-size: 17px;
 }
 
@@ -77,17 +86,18 @@ p {
   font-size: 15px;
   font-family: sans-serif;
   font-weight: 400;
+  color: hsl(235, 19%, 35%);
 }
 
 /*The button to add new note*/
 .addBtn {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 50%;
-  font-size: 60px;
+  font-size: 50px;
   color: #fff;
   border: 0;
   outline: none;
@@ -96,7 +106,8 @@ p {
   margin-top: 10px;
   position: absolute;
   right: 35px;
-  background:darkcyan;
+  background: hsl(235, 19%, 35%);
+  font-weight: 200;
 }
 
 /*The delete button*/
@@ -112,7 +123,7 @@ p {
 
 .dt p {
   font-size: 12px;
-  color: darkcyan;
+  color: hsl(235, 19%, 35%);
   font-weight: 300;
 }
 
@@ -135,6 +146,14 @@ h6 {
   .note p {
     font-size: 16px;
   }
+}
+
+.status-text {
+  text-align: center;
+  margin: 20px;
+  color: hsl(235, 19%, 35%);
+  display: none;
+  font-size: 18px;
 }
 
 /* ---written by simon Makau--- */

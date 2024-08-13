@@ -15,7 +15,6 @@ let markup = `
       <h4 contenteditable="true" class='title'>TITLE</h4>
       <hr>
       <p contenteditable="true" class='text'>write text here....</p>
-      <hr>
       <div class="dt">
       <img src="/images/delete.png" alt="delete.png" class="btnD">
       <p class="time">${getDay(dy)} ${d}/${mn}/${y} ${h}:${m<10?"0"+m:m}${h>10?"PM":"AM"}</p>
@@ -24,14 +23,15 @@ let markup = `
 //selecting DOM elements
 let notes = document.querySelector('.notes')
 let btn = document.querySelector('.addBtn');
+let text = document.querySelector('.status-text')
 
 btn.addEventListener('click', addNote);
 
 loadData()
 //addNote function
 function addNote() {
-  
- //creates a div element 
+
+  //creates a div element 
   let note = document.createElement('div')
   note.setAttribute('class', 'note')
   note.innerHTML = markup
@@ -50,29 +50,33 @@ function addNote() {
   })
 
   //if user edits the title the changes are saved
-  notes.querySelectorAll('.title').forEach((t)=> {
+  notes.querySelectorAll('.title').forEach((t) => {
     t.addEventListener('input', saveData)
   })
   //if user edits the text the changes are saved
-  notes.querySelectorAll('.text').forEach((x)=> {
+  notes.querySelectorAll('.text').forEach((x) => {
     x.addEventListener('input', saveData)
   })
 
   //saving the new note
   saveData()
+  text.style.display = 'none'
 }
 
 //saveData function 
 function saveData() {
-  localStorage.setItem('NOTES',notes.innerHTML);
+  localStorage.setItem('NOTES', notes.innerHTML);
+  if (localStorage.getItem('NOTES') == '') {
+    text.style.display = 'block'
+  }
 }
 //loading data function
 function loadData() {
- //loads saved data from local storage and assigns it to notes element
-notes.innerHTML = localStorage.getItem('NOTES');
+  //loads saved data from local storage and assigns it to notes element
+  notes.innerHTML = localStorage.getItem('NOTES');
 
-//adds a new note when loadData is called
-addNote()
+  //adds a new note when loadData is called
+  addNote()
 }
 
 
@@ -104,13 +108,14 @@ function getDay(num) {
 }
 
 //registering service worker
-if('serviceWorker' in navigator){
-  navigator.serviceWorker.register('/sw.js').then((registration)=>{
-    console.log(registration)
-  })
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then((registration) => {
+  }).catch (error=>{
+    alert('Installation of this App is unsupported in your browser!')
+  }) 
 }
 
-Push.create('notes-app', {
-  body: "welcome to notes app.happy writing!"
-});
+if (localStorage.getItem('NOTES') == '') {
+  text.style.display = 'block'
+}
 /*---written by simon Makau---*/
