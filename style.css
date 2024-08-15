@@ -63,6 +63,7 @@ background: linear-gradient(45deg, crimson, #000);
   padding: 10px;
   background: hsl(0, 0%, 98%);
   transition: all .5s;
+  text-wrap: wrap;
 }
 
 .note:hover {
