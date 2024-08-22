@@ -109,10 +109,9 @@ function getDay(num) {
 
 //registering service worker
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/sw.js').then((registration) => {
-  }).catch (error=>{
+  navigator.serviceWorker.register('/sw.js').then((registration) => {}).catch(error => {
     alert('Installation of this App is unsupported in your browser!')
-  }) 
+  })
 }
 
 if (localStorage.getItem('NOTES') == '') {
